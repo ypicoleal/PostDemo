@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".PostActivity"
+	tools:showIn="@layout/activity_post"
+	app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+	<data>
+
+		<variable
+			name="post"
+			type="com.github.ypicoleal.postdemo.model.dto.Post" />
+	</data>
+
+	<android.support.v4.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="16dp"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+			<TextView
+				style="@style/TextAppearance.AppCompat.Title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/description_title" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:text="@{post.body}"
+				tools:text="quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto" />
+
+			<TextView
+				style="@style/TextAppearance.AppCompat.Title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:text="@string/user_title" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:text="@{@string/user_name + post.user.name}"
+				tools:text="Name: Jon Snow" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:text="@{@string/user_email + post.user.name}"
+				tools:text="Email: jon.snow@winterfell.com " />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:text="@{@string/user_phone + post.user.phone}"
+				tools:text="Phone: +57 300 0000" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:text="@{@string/user_website + post.user.website}"
+				tools:text="Website: jonsnow.com" />
+
+			<TextView
+				style="@style/TextAppearance.AppCompat.Subhead"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="32dp"
+				android:background="#DDDDDD"
+				android:text="Comments"
+				android:textAllCaps="true" />
+
+			<android.support.v7.widget.RecyclerView
+				android:id="@+id/comments"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+				tools:listitem="@layout/item_comment"/>
+		</LinearLayout>
+	</android.support.v4.widget.NestedScrollView>
+</layout>

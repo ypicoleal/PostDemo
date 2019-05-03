@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<import type="android.view.View" />
+
+		<variable
+			name="item"
+			type="com.github.ypicoleal.postdemo.model.dto.Post" />
+
+		<variable
+			name="listener"
+			type="com.github.ypicoleal.postdemo.ui.main.PostAdapter.Listener" />
+	</data>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/border_bg"
+		android:gravity="center"
+		android:onClick="@{() -> listener.onPostClicked(item)}"
+		android:orientation="horizontal">
+
+		<View
+			android:id="@+id/newIndicator"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
+			android:layout_marginEnd="10dp"
+			android:visibility="@{item.new ? View.VISIBLE : View.GONE}"
+			android:background="@drawable/circle" />
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="0px"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="10dp"
+			android:layout_weight="1"
+			android:ellipsize="end"
+			android:maxLines="2"
+			android:paddingTop="8dp"
+			android:paddingBottom="8dp"
+			android:text="@{item.title}"
+			tools:text="sunt aut facere repellat provident occaecati excepturi optio reprehenderit" />
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:contentDescription="@null"
+			android:src="@drawable/ic_star"
+			android:tint="#FFEB3B"
+			android:visibility="@{item.favorite ? View.VISIBLE : View.GONE}" />
+	</LinearLayout>
+</layout>

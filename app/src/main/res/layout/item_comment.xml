@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<import type="android.view.View" />
+
+		<variable
+			name="item"
+			type="com.github.ypicoleal.postdemo.model.dto.Comment" />
+	</data>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingStart="16dp"
+		android:paddingEnd="16dp"
+		android:paddingTop="8dp"
+		android:paddingBottom="8dp"
+		android:text="@{item.body}"
+		android:background="@drawable/border_bg"
+		tools:text="sunt aut facere repellat provident occaecati excepturi optio reprehenderit" />
+</layout>
